@@ -1,0 +1,22 @@
+Index: sdk-11.0.0/components/libraries/util/nrf_log.c
+===================================================================
+--- sdk-11.0.0/components/libraries/util/nrf_log.c	2017-01-18 22:35:51.760385232 -0800
++++ sdk-11.0.0/components/libraries/util/nrf_log.c	2017-01-18 22:36:10.200552865 -0800
+@@ -279,6 +279,8 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include "bsp.h"
++#include "nrf_drv_config.h"
++#include "nrf_drv_uart.h"
+ 
+ uint32_t log_raw_uart_init()
+ {
+@@ -315,7 +317,7 @@
+ 
+     va_list p_args;
+     va_start(p_args, format_msg);
+-    sprintf(buffer, format_msg, p_args);
++    vsprintf(buffer, format_msg, p_args);
+     va_end(p_args);
+ 
+     log_raw_uart_write_string(buffer);

@@ -1,0 +1,6 @@
+*.zip
+*.log
+*.out
+obj/
+sdk-11.0.0/
+
